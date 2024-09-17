@@ -8,9 +8,27 @@ The course is structured into two parts:
 
 Part 1 focuses on machine learning algorithms implemented in Python, including Linear Regression, Classification, Decision Trees, Ensemble Learning, and Neural Networks. 
 
+- **Linear Regression**: Focuses on feature engineering, handling categorical variables, and the critical role of regularization.
+- **Classification**: Emphasizes logistic regression and analyzing feature importance.
+- **Decision Trees and Ensemble Learning**: Highlights the gradient boosting technique and XGBoost, a widely-used ensemble learning algorithm.
+- **Neural Networks and Deep Learning**: Covers Convolutional Neural Networks (CNNs) and transfer learning strategies to solve complex problems using deep learning.
+- **Python and Jupyter Notebooks**: Enhances coding efficiency and productivity.
+- **NumPy and Pandas**: Explores linear algebra concepts, such as matrices, along with data manipulation and analysis.
+- **Matplotlib and Seaborn**: Involves creating visualizations and graphical representations of data.
+- **Scikit-Learn**: Applies various machine learning algorithms to real-world datasets.
+- **TensorFlow and Keras**: Introduces popular frameworks for building neural networks and deep learning models.
+
+
+
 ![image](https://github.com/user-attachments/assets/4ea6d9cf-d038-4052-858f-9761fd93f495)
 
 Part 2 is centered around deploying models using popular frameworks such as Flask, TensorFlow, and Kubernetes.
+
+- **Flask, Pipenv, and Docker**: Facilitates deploying machine learning models, allowing the transition from notebooks to production services and applications.
+- **AWS Lambda and TensorFlow Lite**: Focuses on serverless deep learning and how to operate efficiently within this framework.
+- **Kubernetes and TensorFlow Serving**: Automates the deployment, scaling, and management of containerized applications.
+- **KServe (optional)**: Provides advanced knowledge for those looking to further enhance their model deployment capabilities.
+
 
 
 ### Syllabus 
