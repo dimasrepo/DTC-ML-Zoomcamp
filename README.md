@@ -21,6 +21,7 @@ Focuses on machine learning algorithms implemented in Python, including Linear R
 - **Matplotlib and Seaborn**: Involves creating visualizations and graphical representations of data.
 - **Scikit-Learn**: Applies various machine learning algorithms to real-world datasets.
 - **TensorFlow and Keras**: Introduces popular frameworks for building neural networks and deep learning models.
+  
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4ea6d9cf-d038-4052-858f-9761fd93f495" alt="image">
