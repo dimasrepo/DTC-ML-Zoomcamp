@@ -4,7 +4,10 @@ This course is designed for understand the fundamentals of machine learning and 
 
 The course is structured into two parts:
 
-![image](https://github.com/user-attachments/assets/22bf5e3b-d24f-4b54-82ae-a5d567292a5b)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/22bf5e3b-d24f-4b54-82ae-a5d567292a5b" alt="image">
+</p>
+
 
 Part 1 focuses on machine learning algorithms implemented in Python, including Linear Regression, Classification, Decision Trees, Ensemble Learning, and Neural Networks. 
 
@@ -18,9 +21,11 @@ Part 1 focuses on machine learning algorithms implemented in Python, including L
 - **Scikit-Learn**: Applies various machine learning algorithms to real-world datasets.
 - **TensorFlow and Keras**: Introduces popular frameworks for building neural networks and deep learning models.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4ea6d9cf-d038-4052-858f-9761fd93f495" alt="image">
+</p>
 
 
-![image](https://github.com/user-attachments/assets/4ea6d9cf-d038-4052-858f-9761fd93f495)
 
 Part 2 is centered around deploying models using popular frameworks such as Flask, TensorFlow, and Kubernetes.
 
