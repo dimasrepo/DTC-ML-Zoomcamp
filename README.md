@@ -12,14 +12,14 @@ Part 2 is centered around deploying models using popular frameworks such as Flas
 ### Syllabus 
 
 - [Introduction to Machine Learning](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/I.%20Introduction%20to%20Machine%20Learning)
-- [Machine Learning for Regression](#2-machine-learning-for-regression)
-- [Machine Learning for Classification](#3-machine-learning-for-classification)
-- [Evaluation Metrics for Classification](#4-evaluation-metrics-for-classification)
-- [Deploying Machine Learning Models](#5-deploying-machine-learning-models)
-- [Decision Trees and Ensemble Learning](#6-decision-trees-and-ensemble-learning)
-- [Neural Networks and Deep Learning](#8-neural-networks-and-deep-learning)
-- [Serverless Deep Learning](#9-serverless-deep-learning)
-- [Kubernetes and TensorFlow Serving](#10-kubernetes-and-tensorflow-serving)
+- [Machine Learning for Regression](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/II.%20Machine%20Learning%20for%20Regression%20Model)
+- [Machine Learning for Classification](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/III.%20Machine%20Learning%20for%20Classification)
+- [Evaluation Metrics for Classification](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/IV.%20Evaluation%20Metrics%20for%20Classification)
+- [Deploying Machine Learning Models](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/V.%20Deploying%20Machine%20Learning%20Models)
+- [Decision Trees and Ensemble Learning](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/VI.%20Decision%20Trees%20and%20Ensemble%20Learning)
+- [Neural Networks and Deep Learning](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/VII.%20Neural%20Networks%20and%20Deep%20Learning)
+- [Serverless Deep Learning](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/VIII.%20Serverless%20Deep%20Learning)
+- [Kubernetes and TensorFlow Serving](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/X.%20KServe)
 <!--
 ## Taking the course
 
