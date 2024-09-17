@@ -81,7 +81,10 @@ To make discussions in Slack more organized:
 
 <p align="center">
   <a href="https://saturncloud.io/">
-    <img height="120" src="https://github.com/DataTalksClub/llm-zoomcamp/raw/main/images/saturn-cloud.png">
+    <img height="120" src="https://github.com/user-attachments/assets/a77e79fb-4ac0-4b51-a8e0-bd7c3e3b35e7" alt="image1">
+  </a>
+  <a href="https://saturncloud.io/">
+    <img height="120" src="https://github.com/DataTalksClub/llm-zoomcamp/raw/main/images/saturn-cloud.png" alt="image2">
   </a>
 </p>
 
