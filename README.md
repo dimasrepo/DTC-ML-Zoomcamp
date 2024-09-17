@@ -8,7 +8,7 @@ Part 1 focuses on machine learning algorithms implemented in Python, including L
 
 Part 2 is centered around deploying models using popular frameworks such as Flask, TensorFlow, and Kubernetes.
 
-<!--
+
 ### Syllabus 
 
 - [Introduction to Machine Learning](#1-introduction-to-machine-learning)
@@ -20,7 +20,7 @@ Part 2 is centered around deploying models using popular frameworks such as Flas
 - [Neural Networks and Deep Learning](#8-neural-networks-and-deep-learning)
 - [Serverless Deep Learning](#9-serverless-deep-learning)
 - [Kubernetes and TensorFlow Serving](#10-kubernetes-and-tensorflow-serving)
-
+<!--
 ## Taking the course
 
 ### 2024 cohort
