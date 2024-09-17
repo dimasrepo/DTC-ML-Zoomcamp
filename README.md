@@ -77,7 +77,6 @@ To make discussions in Slack more organized:
 -->
 ## Supporters and partners
 
-![image](https://github.com/user-attachments/assets/a77e79fb-4ac0-4b51-a8e0-bd7c3e3b35e7)
 
 <p align="center">
   <a href="https://saturncloud.io/">
