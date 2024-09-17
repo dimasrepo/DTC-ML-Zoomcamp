@@ -9,7 +9,7 @@
 - 1.7 Introduction to NumPy
 - 1.8 Linear Algebra Refresher
 - 1.9 Introduction to Pandas
-- 1.10 Summary
+- 1.10 [Summary](https://github.com/dimasrepo/DTC-ML-Zoomcamp/blob/main/Course/I.%20Introduction%20to%20Machine%20Learning/Summary/Summary.md)
 
 
 
