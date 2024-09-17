@@ -320,3 +320,37 @@ Combining the training and validation datasets can potentially enhance the model
 It should be noted that the effectiveness of the alternative approach may vary depending on the dataset's characteristics and the initial models' performance. Careful evaluation and experimentation are essential to determine the most appropriate approach for the machine learning task.
 
 In summary, the model selection process is vital for machine learning, involving careful assessment and selection of the best model based on unseen data. The alternative approach of combining datasets can be an effective strategy to improve performance and generalization.
+
+### Part 6
+
+# Setting Up the Environment
+
+## Requirements
+
+To prepare your environment, you need:
+
+- **Python 3.10** (Note: Videos use Python 3.8)
+- **NumPy, Pandas, and Scikit-Learn** (latest versions)
+- **Matplotlib and Seaborn**
+- **Jupyter notebooks**
+
+## Ubuntu 22.04 on AWS
+
+- Refer to [this video](https://www.youtube.com/watch?v=IXSiYkP23zo) for a complete environment configuration on an AWS EC2 instance.
+- Adjust the instructions to clone the relevant repository instead of the MLOps one.
+- You can also use these instructions for setting up local Ubuntu.
+
+### Note for WSL
+
+- Most instructions from the video apply to WSL as well.
+- For Docker, install Docker Desktop on Windows; it will be automatically used in WSL. No need to install `docker.io`.
+
+## Anaconda and Conda
+
+Using [Anaconda](https://www.anaconda.com/products/individual) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) is recommended:
+
+- **Anaconda**: Includes everything needed.
+- **Miniconda**: A lighter version containing only Python.
+
+Follow the installation instructions on the respective websites.
+
