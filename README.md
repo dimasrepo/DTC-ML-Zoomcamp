@@ -8,8 +8,9 @@ The course is structured into two parts:
   <img src="https://github.com/user-attachments/assets/22bf5e3b-d24f-4b54-82ae-a5d567292a5b" alt="image">
 </p>
 
+## Part 1
 
-Part 1 focuses on machine learning algorithms implemented in Python, including Linear Regression, Classification, Decision Trees, Ensemble Learning, and Neural Networks. 
+Focuses on machine learning algorithms implemented in Python, including Linear Regression, Classification, Decision Trees, Ensemble Learning, and Neural Networks. 
 
 - **Linear Regression**: Focuses on feature engineering, handling categorical variables, and the critical role of regularization.
 - **Classification**: Emphasizes logistic regression and analyzing feature importance.
@@ -26,8 +27,9 @@ Part 1 focuses on machine learning algorithms implemented in Python, including L
 </p>
 
 
+## Part 2 
 
-Part 2 is centered around deploying models using popular frameworks such as Flask, TensorFlow, and Kubernetes.
+Centered around deploying models using popular frameworks such as Flask, TensorFlow, and Kubernetes.
 
 - **Flask, Pipenv, and Docker**: Facilitates deploying machine learning models, allowing the transition from notebooks to production services and applications.
 - **AWS Lambda and TensorFlow Lite**: Focuses on serverless deep learning and how to operate efficiently within this framework.
