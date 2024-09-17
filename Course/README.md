@@ -3,6 +3,8 @@
 This course is designed for understand the fundamentals of machine learning and learn how to use key ML frameworks and tools. The only prerequisite for the course is prior programming experience (at least one year) and familiarity with the command line.
 
 The course is structured into two parts:
+
+
 ![image](https://github.com/user-attachments/assets/22bf5e3b-d24f-4b54-82ae-a5d567292a5b)
 
 Part 1 focuses on machine learning algorithms implemented in Python, including Linear Regression, Classification, Decision Trees, Ensemble Learning, and Neural Networks. 
