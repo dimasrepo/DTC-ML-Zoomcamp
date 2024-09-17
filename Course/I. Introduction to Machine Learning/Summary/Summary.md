@@ -155,3 +155,72 @@ Training aims to develop the function \( g \). Although the model (function \( g
 - **Ranking:**
   - Used to rank items, such as in recommender systems, where items are scored and the top values are highlighted based on potential interest. Google's search engine operates similarly by ranking search results.
 
+### Part 4
+
+# CRISP-DM: Cross-Industry Standard Process for Data Mining
+
+**CRISP-DM** (Cross-Industry Standard Process for Data Mining) is an open standard process model that describes common approaches used by data mining experts. Conceived in 1996 and developed as a European Union project under the ESPRIT funding initiative in 1997, it was led by five companies: Integral Solutions Ltd (ISL), Teradata, Daimler AG, NCR Corporation, and OHRA (an insurance company).
+
+## CRISP-DM Process Overview
+
+![image](https://github.com/user-attachments/assets/8e8af0c3-49cf-45a2-9754-016e536a96bb)
+
+
+The CRISP-DM process is an iterative methodology consisting of six steps:
+
+1. **Business Understanding**
+   - The business problem is identified.
+   - Available data sources are detected.
+   - Requirements, premises, and conditions are specified.
+   - Risks and uncertainties are clarified.
+   - The importance of the problem is assessed.
+   - Potential solutions are explored.
+   - Success metrics for the project are defined, including a Cost-Benefit Analysis.
+   - The necessity of Machine Learning (ML) for the project is evaluated.
+
+2. **Data Understanding**
+   - Available data sources are analyzed.
+   - Data is collected and analyzed.
+   - Missing data is identified and assessed.
+   - Data reliability and sufficiency are evaluated.
+   - Decisions are made regarding the need for additional data.
+
+3. **Data Preparation (Feature Engineering)**
+   - Data is transformed into a suitable format for ML algorithms.
+   - Features are extracted from raw data.
+   - Data is cleaned and noise is removed.
+   - Pipelines for transforming raw data into clean data are built.
+   - Data is converted into a tabular format required for ML models.
+
+   Feature Engineering is a critical component of ML projects. As Andrew Ng, Professor at Stanford University, stated, “Coming up with features is difficult, time-consuming, and requires expert knowledge. ‘Applied Machine Learning’ is essentially feature engineering.”
+
+4. **Modeling**
+   - Models are trained using different algorithms.
+   - Various models such as Logistic Regression, Decision Trees, and Neural Networks are tested.
+   - Model parameters are selected and adjusted.
+   - Model quality is improved and the best model is chosen.
+   - Adjustments to data preparation may be required, including adding new features and fixing data issues.
+
+   A key aspect to remember is that model quality is significantly dependent on data quality. The principle of “Garbage in, Garbage out” must be considered.
+
+5. **Evaluation**
+   - The model's performance in solving the business problem is measured.
+   - Metrics are assessed to determine if goals have been achieved (e.g., reducing spam by 50%).
+   - Retrospective evaluation is conducted to determine if the goals were achievable and if the right metrics were used.
+   - Decisions are made on whether to adjust the goals, expand the model’s deployment, or halt the project.
+
+6. **Deployment**
+   - The model is deployed to production after online evaluation (live users) and proper monitoring.
+   - The model is rolled out to all users.
+   - Quality and maintainability are ensured.
+   - Scalability and other engineering practices are addressed.
+   - A final report is created to summarize the project.
+
+## Iteration
+
+- The ML process often requires multiple iterations:
+  - Begin with simple models.
+  - Incorporate feedback to refine the model.
+  - Make continuous improvements.
+
+Overall, CRISP-DM helps in organizing and managing ML projects efficiently, with a focus on iterative improvement and integration of feedback.
