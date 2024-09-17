@@ -20,6 +20,7 @@ Part 2 is centered around deploying models using popular frameworks such as Flas
 - [Neural Networks and Deep Learning](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/VII.%20Neural%20Networks%20and%20Deep%20Learning)
 - [Serverless Deep Learning](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/VIII.%20Serverless%20Deep%20Learning)
 - [Kubernetes and TensorFlow Serving](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/X.%20KServe)
+
 <!--
 ## Taking the course
 
@@ -73,8 +74,10 @@ To make discussions in Slack more organized:
 
 > We encourage [Learning in Public](learning-in-public.md)
 
-
+-->
 ## Supporters and partners
+
+![image](https://github.com/user-attachments/assets/a77e79fb-4ac0-4b51-a8e0-bd7c3e3b35e7)
 
 <p align="center">
   <a href="https://saturncloud.io/">
