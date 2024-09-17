@@ -80,3 +80,78 @@ To implement a spam filter using machine learning, the following steps are taken
 
 4. **Applying the Model**  
    When applied to new datasets, the model generates a probability indicating whether the email is spam. A threshold (e.g., 0.5) is used to make the final classification decision, with probabilities greater than or equal to 0.5 categorized as spam.
+
+### Part 3
+
+## Supervised Machine Learning Overview
+
+In Supervised Machine Learning (SML), labels are always associated with specific features. The model is trained on these labeled examples, and subsequently, predictions can be made on new, unseen features. This training process involves teaching the model by using a feature matrix \( X \) and target values \( y \), with \( X \) representing observations or objects (rows) and features (columns), and \( y \) being the vector containing the target information.
+
+The model can be represented as a function \( g \) that takes the feature matrix \( X \) as input and attempts to predict values as close as possible to the target values \( y \). The process of determining the function \( g \) is known as training.
+
+### Types of SML Problems
+
+- **Regression:** The output is a continuous number, such as the price of a car.
+- **Classification:** The output is a category, such as identifying an email as spam or not spam.
+  - **Binary Classification:** There are two categories.
+  - **Multiclass Classification:** There are more than two categories.
+- **Ranking:** The output consists of scores associated with items, commonly used in recommender systems.
+
+In summary, SML involves teaching a model by presenting various examples to it, with the goal of deriving a function that can take the feature matrix as input and make predictions as closely aligned with the target values \( y \) as possible.
+
+### Approaches to Software Solutions
+
+Several approaches exist for addressing problems with software. These include:
+- **Classical Approach:** Solutions are hard-coded.
+- **AI Approaches:**
+  - **Knowledge-Based Systems:** These are divided into rule-based systems and case-based reasoning.
+  - **Machine Learning (ML):** This approach allows systems to learn from experience without explicit programming. ML focuses on developing applications that can access and learn from data independently.
+
+Different problems are addressed by ML, including:
+- **Regression:** Predicting continuous values, such as prices.
+- **Classification:** Predicting labels to distinguish between different classes.
+- **Clustering:** Identifying groups or patterns in data without predefined group labels.
+
+### Learning Strategies
+
+Depending on the problem type, various learning strategies can be employed:
+- **Supervised Learning**
+- **Unsupervised Learning**
+- **Semi-Supervised Learning**
+- **Reinforcement Learning**
+- **Active Learning**
+
+This overview provides insight into where Supervised Learning fits within the broader context of machine learning approaches. For further details on other approaches, consult relevant literature.
+
+### Definition of Supervised Machine Learning
+
+In supervised machine learning, the model is guided by the training data, which consists of examples paired with target values (e.g., car prices). The model learns from these examples, extracting patterns and generalizing them to new examples.
+
+- **Rows:** Observations or objects for prediction.
+- **Columns:** Features of each observation/object.
+- **Feature Matrix (X):** A two-dimensional array containing all features.
+- **Target Variable (y):** A one-dimensional array containing target values.
+
+The formal definition of supervised machine learning is expressed as \( g(X) \approx y \), where:
+- \( X \): Feature matrix
+- \( y \): Target variable
+- \( g \): Model that takes \( X \) and approximates \( y \)
+
+Training aims to develop the function \( g \). Although the model (function \( g \)) may not always predict the exact target variable, the goal is to approximate \( y \) as closely as possible.
+
+### Types of Supervised Machine Learning
+
+- **Regression:**
+  - Example: Predicting the price of a car or house.
+  - \( g \) predicts a continuous number within the range of \(-\infty\) to \(+\infty\).
+
+- **Classification:**
+  - Example: Identifying a picture as a car or classifying mail as spam.
+  - \( g \) predicts a category or label.
+  - **Subtypes of Classification:**
+    - **Multiclass Classification:** Distinguishing among several classes (e.g., cat, dog, car).
+    - **Binary Classification:** Distinguishing between two classes (e.g., spam vs. not spam).
+
+- **Ranking:**
+  - Used to rank items, such as in recommender systems, where items are scored and the top values are highlighted based on potential interest. Google's search engine operates similarly by ranking search results.
+
