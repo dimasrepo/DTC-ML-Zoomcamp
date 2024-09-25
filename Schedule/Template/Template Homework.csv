@@ -1,0 +1,24 @@
+Item,Description,No.,Question,Options,Selected Answer
+Due Date,1 October 2024 06:00 (local time),1,Pandas version,Short Answer,2.2.2
+,,2,Records count,A. 12,B. 2160
+,,,,B. 1000,
+,,,,C. 2160,
+,,,,D. 12160,
+,,3,Laptop brands,A. 12,B. 27
+,,,,B. 27,
+,,,,C. 28,
+,,,,D. 2160,
+,,4,Missing values,A. 0,D. 3
+,,,,B. 1,
+,,,,C. 2,
+,,,,D. 3,
+,,5,Maximum final price,A. 869,D. 3936
+,,,,B. 3691,
+,,,,C. 3849,
+,,,,D. 3936,
+,,6,Median value of Screen,A. Yes,B. No
+,,,,B. No,
+,,7,Sum of weights,A. 0.43,D. 91.30
+,,,,B. 45.29,
+,,,,C. 45.58,
+,,,,D. 91.30,
