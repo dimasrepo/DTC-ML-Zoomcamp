@@ -105,6 +105,12 @@ To make discussions in Slack more organized:
 > We encourage [Learning in Public](learning-in-public.md)
 
 -->
+
+## Documentation & Links
+To view the repository and portfolio, please visit our link below
+[Linkedin](https://www.linkedin.com/in/dimas-a-11b184122/)
+[Medium](https://medium.com/@senddimasadit/machine-learning-zoomcamp-by-datatalksclub-introduction-to-machine-learning-090f5fa0d7a0)
+
 ## Supporters
 
 
