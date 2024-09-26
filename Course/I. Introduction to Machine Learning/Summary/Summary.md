@@ -500,14 +500,18 @@ python
 import numpy as np
 ```
 # Defining a square matrix
+```
 V = np.array([
     [1, 1, 2],
     [0, 0.5, 1],
     [0, 3, 1]
 ])
+```
 
 # Calculating the inverse of matrix V
-V_inv = np.linalg.inv(V)  
+```
+V_inv = np.linalg.inv(V)
+```
 # Eigenvalues, Eigenvectors, and Determinants in Linear Algebra
 
 ## Eigenvalues and Eigenvectors
