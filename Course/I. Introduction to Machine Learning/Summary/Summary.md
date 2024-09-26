@@ -279,8 +279,6 @@ The following process is typically followed:
 4. **Compare Metrics**
    - Performance metrics from the validation and test datasets are compared.
 
-## Summary
-
 The model selection process involves:
 
 1. Splitting the dataset into training, validation, and test sets.
@@ -353,4 +351,297 @@ Using [Anaconda](https://www.anaconda.com/products/individual) or [Miniconda](ht
 - **Miniconda**: A lighter version containing only Python.
 
 Follow the installation instructions on the respective websites.
+
+### Part 7
+
+# NumPy: A Comprehensive Overview
+
+NumPy is a powerful library in Python used for numerical computing, providing support for multi-dimensional arrays and a variety of mathematical functions. It is an essential tool for data analysis, scientific computing, and machine learning.
+
+## 1. Creating Arrays
+
+NumPy allows the creation of arrays in various ways:
+
+- **From Python Lists**: You can create a NumPy array directly from a Python list using `np.array()`.
+    ```python
+    import numpy as np
+    arr = np.array([1, 2, 3])
+    ```
+
+- **Using Built-in Functions**: Functions such as `np.zeros()`, `np.ones()`, and `np.arange()` enable the creation of arrays initialized with zeros, ones, or a range of values.
+    ```python
+    zeros_array = np.zeros((2, 3))  # 2x3 array of zeros
+    ones_array = np.ones((3, 2))     # 3x2 array of ones
+    range_array = np.arange(10)       # Array with values from 0 to 9
+    ```
+
+- **Using Random Generation**: The `numpy.random` module provides methods for generating arrays filled with random values, useful for testing and simulations.
+    ```python
+    random_integers = np.random.randint(10, size=5)        # 1D array of random integers
+    random_floats = np.random.random((3, 4))               # 2D array of random floats
+    random_normal = np.random.normal(size=(2, 3, 2))       # 3D array from standard normal distribution
+    ```
+
+## 2. Element-wise Operations
+
+NumPy supports element-wise operations, allowing mathematical operations to be performed directly on arrays without explicit loops. This includes:
+
+- **Addition and Subtraction**:
+    ```python
+    arr1 = np.array([1, 2, 3])
+    arr2 = np.array([4, 5, 6])
+    result_add = arr1 + arr2  # Element-wise addition
+    result_sub = arr1 - arr2  # Element-wise subtraction
+    ```
+
+- **Multiplication and Division**:
+    ```python
+    result_mul = arr1 * arr2  # Element-wise multiplication
+    result_div = arr1 / arr2  # Element-wise division
+    ```
+
+- **Mathematical Functions**: NumPy provides numerous built-in functions like `np.sin()`, `np.exp()`, etc., that operate element-wise.
+    ```python
+    arr = np.array([0, np.pi/2, np.pi])
+    result_sin = np.sin(arr)  # Sine of each element
+    result_exp = np.exp(arr)  # Exponential of each element
+    ```
+
+## 3. Comparison Operations
+
+NumPy enables comparison operations between array elements, resulting in boolean arrays that can be used for filtering or conditional assignments:
+
+- **Basic Comparisons**:
+    ```python
+    arr = np.array([1, 2, 3, 4, 5])
+    result_comp = arr > 3  # Output: [False False False True True]
+    ```
+
+- **Element-wise Comparisons**: You can compare elements of multiple arrays:
+    ```python
+    arr1 = np.array([1, 2, 3])
+    arr2 = np.array([3, 2, 1])
+    result_eq = arr1 == arr2  # Output: [False True False]
+    ```
+
+- **Logical Combinations**: Combine comparisons with logical operators:
+    ```python
+    result_combined = (arr > 2) & (arr < 5)  # Output: [False False True True False]
+    ```
+
+NumPy is a fundamental library for anyone involved in scientific computing or data analysis in Python. Its ability to handle arrays and perform complex operations efficiently makes it a go-to tool for developers and researchers alike.
+
+### Part 8
+
+# Linear Algebra Refresher
+
+## Part 1: Introduction to Linear Algebra
+Linear algebra is a branch of mathematics that focuses on vector spaces and linear mappings between them. It encompasses various concepts essential for understanding more complex mathematical theories and applications, especially in fields like machine learning and data analysis.
+
+### Key Concepts:
+1. **Vectors**: An ordered array of numbers representing a point in space.
+2. **Matrices**: A rectangular array of numbers organized in rows and columns, representing linear transformations.
+
+## Part 2: Fundamental Operations
+### Vector Operations:
+- **Addition**: Vectors of the same dimension can be added component-wise.
+- **Scalar Multiplication**: Each component of the vector is multiplied by a scalar.
+- **Dot Product**: A scalar resulting from the sum of the products of corresponding components of two vectors.
+
+### Matrix Operations:
+- **Addition**: Similar to vector addition, matrices of the same dimensions can be added.
+- **Scalar Multiplication**: Each element of the matrix is multiplied by a scalar.
+- **Matrix Multiplication**: The dot product of rows and columns, requiring the number of columns in the first matrix to equal the number of rows in the second.
+
+## Part 3: Special Matrix Types
+
+### Identity Matrix
+- The **identity matrix** (denoted as \( I \)) is a square matrix with ones on the main diagonal and zeros elsewhere.
+- **Mathematical Representation**:
+  ![image](https://github.com/user-attachments/assets/dfae5539-5cbb-4246-971f-65e4a2d76b62)
+
+- **Properties**:
+  - Acts as a neutral element in matrix multiplication: ![image](https://github.com/user-attachments/assets/0cdc23aa-6ad0-4c94-b63a-f86085eeb08d)
+
+- **Applications**:
+  - Used in neural networks as initial weight matrices to prevent overfitting and aid convergence.
+
+**Python Implementation**:
+python
+
+```
+import numpy as np
+```
+
+# Creating a 3x3 identity matrix
+I = np.eye(3)  
+# Inverse Matrix, Eigenvalues, and Determinants in Linear Algebra
+
+## Inverse Matrix
+The inverse of a matrix \( U \) (denoted \( U^{-1} \)) satisfies the equation:
+![image](https://github.com/user-attachments/assets/d54cc42f-bb82-4a87-8c8a-b78c899b355d)
+
+
+### Conditions:
+- \( U \) must be square and invertible (i.e., the determinant \( |U| \neq 0 \)).
+
+### Formula:
+![image](https://github.com/user-attachments/assets/51ca46ff-9c69-4eaa-834c-04d6ebef3354)
+
+
+### Applications:
+- Solving linear equations.
+- Optimizing algorithms in machine learning.
+
+### Python Implementation:
+python
+
+```
+import numpy as np
+```
+# Defining a square matrix
+V = np.array([
+    [1, 1, 2],
+    [0, 0.5, 1],
+    [0, 3, 1]
+])
+
+# Calculating the inverse of matrix V
+V_inv = np.linalg.inv(V)  
+# Eigenvalues, Eigenvectors, and Determinants in Linear Algebra
+
+## Eigenvalues and Eigenvectors
+Eigenvalues (\( \lambda \)) and eigenvectors (\( v \)) are crucial for understanding matrix behavior, expressed as:
+![image](https://github.com/user-attachments/assets/aa38ec1c-9f7b-442e-ac06-48a2182641d2)
+
+
+### Applications:
+- Used in dimensionality reduction techniques such as Principal Component Analysis (PCA) and spectral clustering.
+
+## Determinants
+The determinant of a matrix \( A \) (denoted \( |A| \)) provides insights into the matrix's scaling factor and invertibility.
+
+### Importance:
+- Determines if a matrix is singular or invertible.
+- Useful in solving linear equations and finding eigenvalues.
+
+### Calculation:
+- Various methods exist based on matrix size (e.g., LU decomposition for larger matrices).
+
+Understanding these concepts in linear algebra provides a strong foundation for more advanced mathematical applications in machine learning and data analysis. Mastery of identity matrices, inverse matrices, eigenvalues, eigenvectors, and determinants enhances one's ability to tackle complex problems effectively. These mathematical tools serve as essential components in the development of algorithms and data manipulation strategies used in various applications.
+
+### Part 9
+
+# Introduction to Pandas
+
+Pandas is a powerful Python library widely used for data analysis and manipulation. It provides flexible data structures and functions to work with structured data, making it an essential tool for data scientists and analysts.
+
+## 1. DataFrame Basics
+
+A DataFrame is a two-dimensional, size-mutable, and potentially heterogeneous tabular data structure with labeled axes (rows and columns). It can be created from various data sources, such as dictionaries, lists, or external files like CSV.
+
+### Example DataFrame
+
+Consider the following DataFrame representing car information:
+
+| Make    | Model      | Year | Engine HP | Engine Cylinders | Transmission Type | Vehicle_Style | MSRP  |
+|---------|------------|------|-----------|-------------------|-------------------|----------------|-------|
+| Nissan  | Stanza     | 1991 | 138       | 4                 | MANUAL            | sedan          | 2000  |
+| Hyundai | Sonata     | 2017 | NaN       | 4                 | AUTOMATIC         | Sedan          | 27150 |
+| Lotus   | Elise      | 2010 | 218       | 4                 | MANUAL            | convertible     | 54990 |
+| GMC     | Acadia     | 2017 | 194       | 4                 | AUTOMATIC         | 4dr SUV        | 34450 |
+| Nissan  | Frontier   | 2017 | 261       | 6                 | MANUAL            | Pickup         | 32340 |
+
+## 2. Data Filtering
+
+Filtering refers to the process of selecting specific rows or columns from a DataFrame based on certain conditions. In Pandas, we can use various techniques to filter our data.
+
+### Boolean Indexing
+
+A common technique is to use boolean indexing, which involves creating a boolean mask specifying the conditions for data selection.
+
+For example, to filter out all rows where the year is greater than or equal to 2015:
+
+```python
+condition = df.Year >= 2015
+filtered_df = df[condition]  # or df[df.Year >= 2015]
+```
+
+### Using the .query() Method
+Another useful technique is the .query() method, which allows us to filter rows using a string expression similar to SQL:
+```
+filtered_df = df.query('Year >= 2015')
+```
+
+### Filtering by Make
+To filter for cars made by Nissan:
+```
+df[df.Make == 'Nissan']
+```
+### Combining Conditions
+We can combine multiple conditions. For example, to get all Nissans made after the year 2015:
+```
+df[(df.Make == 'Nissan') & (df.Year > 2015)]
+```
+By using these filtering techniques, we can easily extract the data needed for further analysis or computations, especially with large datasets.
+
+## 3. String Operations
+Pandas provides string operations that are not available in NumPy, which primarily focuses on numerical data.
+
+Example DataFrame and Vehicle_Style Column
+The Vehicle_Style column may have inconsistent formatting. We can standardize it by converting all text to lowercase and replacing spaces with underscores.
+```
+df['Vehicle_Style'] = df['Vehicle_Style'].str.lower().str.replace(' ', '_')
+```
+Summary of Operations
+We can also summarize numerical columns using various functions:
+```
+df.MSRP.min()  # Minimum MSRP
+df.MSRP.max()  # Maximum MSRP
+df.MSRP.mean()  # Average MSRP
+```
+## 4. Descriptive Statistics
+The describe() function provides a summary of numerical columns, including count, mean, standard deviation, min, max, and quantiles.
+```
+df.describe()  # Summary of all numerical columns
+df.MSRP.describe()  # Summary for a specific column
+```
+To round the values for better readability:
+```
+df.describe().round(2)
+```
+## 5. Handling Categorical Columns
+Unique Values
+To count the number of unique values in a column:
+```
+df.Make.nunique()  # Unique makes
+df.nunique()  # Unique values for all columns
+```
+Unique Values List
+To see the unique values in a specific column:
+```
+df.Year.unique()
+```
+## 6. Missing Values
+Handling missing values is crucial. The isnull() function returns a boolean DataFrame indicating missing values:
+```
+df.isnull().sum()  # Summarizes the number of missing values per column
+```
+## 7. Grouping Data
+Grouping allows us to summarize data. For example, to get the average MSRP for each transmission type:
+```
+df.groupby('Transmission Type').MSRP.mean()
+```
+This provides insights into how different groups compare regarding various metrics.
+By using these techniques in Pandas, you can effectively analyze and manipulate data, leading to meaningful insights and informed decision-making.
+
+
+
+
+
+
+
+
+
+
 
