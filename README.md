@@ -107,11 +107,10 @@ To make discussions in Slack more organized:
 -->
 
 ## Documentation & Links
-To view the repository and portfolio, please visit our link below
+* Insights and Observations by Dimas [Medium](https://medium.com/@dimasadit)
+  
+* To view the repository and portfolio, please visit our link [Dimas Project](https://dimasrepo.github.io/)
 
-[Linkedin](https://www.linkedin.com/in/dimas-a-11b184122/)
-
-[Medium](https://medium.com/@senddimasadit/machine-learning-zoomcamp-by-datatalksclub-introduction-to-machine-learning-090f5fa0d7a0)
 
 ## Supporters
 
