@@ -87,7 +87,7 @@ To make discussions in Slack more organized:
 - [1.8 Linear Algebra Refresher](https://github.com/dimasrepo/DTC-ML-Zoomcamp/blob/main/Course/I.%20Introduction%20to%20Machine%20Learning/Summary/Summary.md#part-8)
 - [1.9 Introduction to Pandas](https://github.com/dimasrepo/DTC-ML-Zoomcamp/blob/main/Course/I.%20Introduction%20to%20Machine%20Learning/Summary/Summary.md#part-9)
 - [1.10 Summary](https://github.com/dimasrepo/DTC-ML-Zoomcamp/blob/main/Course/I.%20Introduction%20to%20Machine%20Learning/Summary/Summary.md)
-- 1.11 [Homework](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/I.%20Introduction%20to%20Machine%20Learning/Homeworks)
+- [1.11 Homework](https://github.com/dimasrepo/DTC-ML-Zoomcamp/tree/main/Course/I.%20Introduction%20to%20Machine%20Learning/Homeworks)
 
 
 ## 2. Machine Learning for Regression
