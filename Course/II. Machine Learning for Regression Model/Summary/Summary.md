@@ -629,17 +629,14 @@ The Gram matrix calculated is:
 XTX = X.T.dot(X)
 This results in duplicate columns, leading to a singular matrix.
 
-Regularization Technique
+### Regularization Technique
 To mitigate the effects of duplicate columns, a small value (alpha) can be added to the diagonal of the Gram matrix:
-XTX = XTX + \alpha \cdot I
+XTX = XTX + \alpha \cdot I Where 𝐼 is the identity matrix. This addition improves the likelihood of obtaining a non-singular matrix and stabilizes the computation of the weights.
 
-Where 
-𝐼
-I is the identity matrix. This addition improves the likelihood of obtaining a non-singular matrix and stabilizes the computation of the weights.
+### Impact of Noise
 
-Impact of Noise
 Introducing slight noise to the duplicate columns can also make the columns no longer identical, thus allowing the computation of the inverse:
-
+```python
 X = [
     [4, 4, 4],
     [3, 5, 5],
@@ -648,11 +645,13 @@ X = [
     [7, 5, 5],
     [4, 5, 5.0000001],
 ]
+``` 
 This adjustment results in a computable Gram matrix 𝑋𝑇𝑋 with non-singular properties.
 
-Practical Implementation
+### Practical Implementation
 To incorporate regularization in the linear regression training function:
 
+```python
 def train_linear_regression_reg(X, y, r=0.001):
     ones = np.ones(X.shape[0])
     X = np.column_stack([ones, X])
@@ -664,15 +663,16 @@ def train_linear_regression_reg(X, y, r=0.001):
     w_full = XTX_inv.dot(X.T).dot(y)
     
     return w_full[0], w_full[1:]
+```
 
-Results
+### Results
 After applying the regularization technique with a regularization parameter 𝑟=0.01, the root mean square error (RMSE) improved significantly:
-
+```python
 rmse(y_val, y_pred)  # Output: 0.45685446091134857
-
+```
 This demonstrates the effectiveness of regularization in controlling the weights and improving model performance.
 
-Conclusion
+### Conclusion
 Regularization is an essential technique in linear regression to address issues arising from duplicate features. By adding a small value to the diagonal of the Gram matrix, we can stabilize the inverse calculation, resulting in better model performance. Future work will involve optimizing the regularization parameter  
 
 
@@ -683,9 +683,10 @@ Regularization is an essential technique in linear regression to address issues 
 Model Tuning
 The process of tuning the linear regression model involved identifying the optimal regularization parameter r using a validation set. The goal was to determine how this parameter impacts model performance.
 
-Hyperparameter Search
+### Hyperparameter Search
 A range of values for r was tested:
 
+```python
 for r in [0.0, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10]:
     X_train = prepare_X(df_train)
     w0, w = train_linear_regression_reg(X_train, y_train, r=r)
@@ -695,65 +696,82 @@ for r in [0.0, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10]:
     
     score = rmse(y_val, y_pred)
     print("reg parameter: ", r, "bias term: ", w0, "rmse: ", score)
-    
-Results Summary
+```    
+### Results Summary
+
 r = 0.0: Huge bias term and high RMSE.
 Optimal r = 0.001: RMSE was found to be 0.4568807317131709, indicating good model performance.
 
-Final Model Training
+### Final Model Training
 After identifying the optimal r, the model was retrained on the combined training and validation datasets.
 
-Combining Datasets
+### Combining Datasets
 The datasets were concatenated using:
 
+```python
 df_full_train = pd.concat([df_train, df_val])
 y_full_train = np.concatenate([y_train, y_val])
 df_full_train = df_full_train.reset_index(drop=True)
+```
 
-Preparing Features
+### Preparing Features
 The feature matrix was prepared using:
 
+```python
 X_full_train = prepare_X(df_full_train)
+```
 
-Final Training
+### Final Training
 The model was trained on the full dataset:
 
+```python
 w0, w = train_linear_regression_reg(X_full_train, y_full_train, r=0.001)
+```
 
-Testing the Model
+### Testing the Model
 The final model was evaluated on a test dataset to check its performance:
 
+```python
 X_test = prepare_X(df_test)
 y_pred = w0 + X_test.dot(w)
 score = rmse(y_test, y_pred)
 print("rmse: ", score)
+```
 
-Results
+### Results
+
 Test RMSE: 0.5094518818513973, indicating good generalization as it was close to the validation RMSE.
 Using the Model for Predictions
 The final model can be utilized to predict the price of an unseen car by extracting features and applying the model.
 
-Feature Extraction
+### Feature Extraction
+
 For instance, extracting features from a car in the test dataset:
 
+```python
 car = df_test.iloc[20].to_dict()
 df_small = pd.DataFrame([car])
 X_small = prepare_X(df_small)
+```
+### Price Prediction
 
-Price Prediction
 The model was applied to the feature vector:
 
+```python
 y_pred = w0 + X_small.dot(w)
 y_pred = np.expm1(y_pred[0])  # Undoing the logarithm
+```
+### Final Predicted Price
 
-Final Predicted Price
 The predicted price was approximately $21,044.36.
 
-Actual Price Comparison
+### Actual Price Comparison
+
 Comparing with the actual price:
 
+```python
 actual_price = np.expm1(y_test[20])  # Output: 34975.0
-
+```
 
 This comprehensive approach illustrates the steps involved in tuning a linear regression model, training it on a combined dataset, and making predictions on unseen data. The model performed well, showing generalization capabilities through consistent RMSE values.
 
@@ -796,21 +814,23 @@ df_small = pd.DataFrame([car])
 
 This DataFrame is then passed to the prepare_X() function to generate the feature matrix (feature vector).
 
-Price Prediction
+### Price Prediction
 Once we have the feature vector, we apply the final model to predict the price:
 
+```python
 y_pred = w0 + X_small.dot(w)
-
+```
 To obtain the actual price in dollars, we must undo the logarithm transformation applied during training:
-
+```python
 predicted_price = np.expm1(y_pred)
-
+```
 For our example, this results in a predicted price of approximately $21,044.36.
 
-Model Performance Evaluation
+### Model Performance Evaluation
+
 Finally, we can evaluate the model's performance by comparing the predicted price to the actual price of the car:
-
+```python
 actual_price = np.expm1(y_test[20])
-
+```
 The actual price of the selected car was $34,975.00, highlighting the discrepancy between the predicted and actual values.
 
