@@ -1,7 +1,5 @@
 ## Homework 2: Laptop Price Prediction
 
-> Note: Sometimes your answer might not perfectly match any of the options. That’s okay. Just choose the option that’s closest to your solution.
-
 ### Dataset
 
 For this assignment, we will use the Laptops Price dataset from [Kaggle](https://www.kaggle.com/datasets/juanmerinobermejo/laptops-price-dataset).
