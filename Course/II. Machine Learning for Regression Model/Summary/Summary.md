@@ -761,7 +761,6 @@ This comprehensive approach illustrates the steps involved in tuning a linear re
 
 ## Using the model
 
-## Using the Model
 Using the model involves two main steps:
 
 1. **Feature Extraction**: Extracting the feature vector from a car's attributes.
