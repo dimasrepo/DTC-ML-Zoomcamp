@@ -834,3 +834,31 @@ actual_price = np.expm1(y_test[20])
 ```
 The actual price of the selected car was $34,975.00, highlighting the discrepancy between the predicted and actual values.
 
+## Summary of Linear Regression Process
+
+### Data Preparation
+- Import necessary libraries, including NumPy and Pandas.
+- Load the dataset containing information about cars or relevant features.
+- Identify the feature columns to be used in the regression model.
+
+### Pre-Processing
+- Fill missing values in the dataset with zeros.
+- Calculate new features, such as the age of the vehicle based on the manufacturing year.
+- Create dummy variables for categorical features.
+
+### Building the Linear Regression Model
+- Develop the `train_linear_regression` function to calculate model weights (coefficients) using the Least Squares method.
+- Implement regularization with the `train_linear_regression_reg` function to address multicollinearity by adding a regularization parameter (r).
+
+### Model Training
+- Prepare the feature matrix (X) and target (y) from the training and validation data.
+- Train the model using the training and validation data.
+- Calculate predictions using the trained model and compute errors using the Root Mean Square Error (RMSE) function.
+
+### Model Evaluation
+- Use the full training data (combined training and validation data) to train the final model.
+- Compute predictions on the test dataset and calculate the RMSE score to evaluate model performance.
+
+### Individual Prediction
+- Extract a single entry from the test data for individual prediction.
+- Calculate the predicted value and convert it back to the original scale using the `np.expm1` function.
