@@ -1,101 +1,63 @@
-## Homework
+## Homework 2: Laptop Price Prediction
 
-> Note: sometimes your answer doesn't match one of 
-> the options exactly. That's fine. 
-> Select the option that's closest to your solution.
-
+> Note: Sometimes your answer might not perfectly match any of the options. That’s okay. Just choose the option that’s closest to your solution.
 
 ### Dataset
 
-In this homework, we will use the Laptops price dataset from [Kaggle](https://www.kaggle.com/datasets/juanmerinobermejo/laptops-price-dataset).
+For this assignment, we will use the Laptops Price dataset from [Kaggle](https://www.kaggle.com/datasets/juanmerinobermejo/laptops-price-dataset).
 
-Here's a wget-able [link](https://raw.githubusercontent.com/alexeygrigorev/datasets/master/laptops.csv):
-
-```bash
-wget https://raw.githubusercontent.com/alexeygrigorev/datasets/master/laptops.csv
-```
-
-The goal of this homework is to create a regression model for predicting the prices (column `'Final Price'`).
-
-### Preparing the dataset 
-
-First, we'll normalize the names of the columns:
-
-```python
-df.columns = df.columns.str.lower().str.replace(' ', '_')
-```
-
-Now, instead of `'Final Price'`, we have `'final_price'`.
-
-Next, use only the following columns:
-
-* `'ram'`,
-* `'storage'`,
-* `'screen'`,
-* `'final_price'`
-
-### EDA
-
-* Look at the `final_price` variable. Does it have a long tail? 
-
-
+Our objective is to create a regression model to predict laptop prices using the column `'Final Price'`.
 
 ### Question 1
 
-There's one column with missing values. What is it?
+One of the columns contains missing values. Which column is it?
 
-* `'ram'`
-* `'storage'`
-* `'screen'`
-* `'final_price'`
-
+- `'ram'`
+- `'storage'`
+- `'screen'`
+- `'final_price'`
 
 ### Question 2
 
-What's the median (50% percentile) for variable `'ram'`?
+What is the median (50th percentile) value for the variable `'ram'`?
 
 - 8
 - 16
 - 24
 - 32
 
-### Prepare and split the dataset
+### Data Preparation and Splitting
 
-* Shuffle the dataset (the filtered one you created above), use seed `42`.
-* Split your data in train/val/test sets, with 60%/20%/20% distribution.
+- Shuffle the dataset (use the filtered dataset you’ve created earlier), applying seed `42`.
+- Split the dataset into training, validation, and test sets, with a 60%/20%/20% distribution.
 
-Use the same code as in the lectures
-
+Use the code provided in the lessons for reference.
 
 ### Question 3
 
-* We need to deal with missing values for the column from Q1.
-* We have two options: fill it with 0 or with the mean of this variable.
-* Try both options. For each, train a linear regression model without regularization using the code from the lessons.
-* For computing the mean, use the training only!
-* Use the validation dataset to evaluate the models and compare the RMSE of each option.
-* Round the RMSE scores to 2 decimal digits using `round(score, 2)`
-* Which option gives better RMSE?
+- We need to handle missing values from the column identified in Q1.
+- There are two options: fill missing values with 0 or with the mean of the column.
+- For both approaches, train a linear regression model without regularization using the code from the lessons.
+- When calculating the mean, make sure to use only the training set.
+- Use the validation dataset to assess the model performance and compare the RMSE of each option.
+- Round the RMSE values to two decimal places using `round(score, 2)`.
 
-Options:
+Which method provides the better RMSE?
 
-- With 0
-- With mean
-- Both are equally good
-
+- Fill with 0
+- Fill with mean
+- Both options are equally effective
 
 ### Question 4
 
-* Now let's train a regularized linear regression.
-* For this question, fill the NAs with 0. 
-* Try different values of `r` from this list: `[0, 0.01, 0.1, 1, 5, 10, 100]`.
-* Use RMSE to evaluate the model on the validation dataset.
-* Round the RMSE scores to 2 decimal digits.
-* Which `r` gives the best RMSE?
+Now, we’ll apply regularization to our linear regression model.
 
-If there are multiple options, select the smallest `r`.
+- Fill missing values with 0 for this question.
+- Test different values of the regularization parameter `r` from the following list: `[0, 0.01, 0.1, 1, 5, 10, 100]`.
+- Use the RMSE metric to evaluate the model on the validation set.
+- Round the RMSE scores to two decimal places.
 
-Options:
+Which `r` value gives the best RMSE? If multiple values result in similar RMSE, select the smallest `r`.
 
 - 0
 - 0.01
@@ -103,36 +65,32 @@ Options:
 - 10
 - 100
 
+### Question 5
 
-### Question 5 
+We previously used seed 42 for data splitting. Let's explore how different seeds affect the model's performance.
 
-* We used seed 42 for splitting the data. Let's find out how selecting the seed influences our score.
-* Try different seed values: `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`.
-* For each seed, do the train/validation/test split with 60%/20%/20% distribution.
-* Fill the missing values with 0 and train a model without regularization.
-* For each seed, evaluate the model on the validation dataset and collect the RMSE scores. 
-* What's the standard deviation of all the scores? To compute the standard deviation, use `np.std`.
-* Round the result to 3 decimal digits (`round(std, 3)`)
+- Test the following seed values: `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`.
+- For each seed, perform the train/validation/test split with a 60%/20%/20% distribution.
+- Fill missing values with 0 and train a linear regression model without regularization.
+- For each seed, evaluate the model on the validation dataset and collect the RMSE values.
+- Compute the standard deviation of the RMSE values using `np.std`.
+- Round the result to three decimal places (`round(std, 3)`).
 
-What's the value of std?
+What is the standard deviation of the RMSE values?
 
 - 19.176
 - 29.176
 - 39.176
 - 49.176
 
-> Note: Standard deviation shows how different the values are.
-> If it's low, then all values are approximately the same.
-> If it's high, the values are different. 
-> If standard deviation of scores is low, then our model is *stable*.
-
+> **Note**: Standard deviation measures how much the values differ from each other. A low standard deviation indicates that the values are similar, while a high standard deviation suggests more variation. If the standard deviation of RMSE values is low, it means that our model is stable.
 
 ### Question 6
 
-* Split the dataset like previously, use seed 9.
-* Combine train and validation datasets.
-* Fill the missing values with 0 and train a model with `r=0.001`. 
-* What's the RMSE on the test dataset?
+- Split the dataset like before, but this time use seed `9`.
+- Combine the training and validation sets.
+- Fill missing values with 0 and train a model using `r = 0.001`.
+- What is the RMSE on the test dataset?
 
 Options:
 
@@ -140,8 +98,3 @@ Options:
 - 608.60
 - 618.60
 - 628.60
-
-## Submit the results
-
-* Submit your results here: https://courses.datatalks.club/ml-zoomcamp-2024/homework/hw02
-* If your answer doesn't match options exactly, select the closest one
