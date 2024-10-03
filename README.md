@@ -37,7 +37,8 @@ Centered around deploying models using popular frameworks such as Flask, TensorF
 - **Kubernetes and TensorFlow Serving**: Automates the deployment, scaling, and management of containerized applications.
 - **KServe (optional)**: Provides advanced knowledge for those looking to further enhance their model deployment capabilities.
 
-
+### Reading Plan
+![image](https://github.com/user-attachments/assets/5f5d289b-3c08-4599-9c1a-21eff4a21f81)
 
 ### Syllabus 
 
