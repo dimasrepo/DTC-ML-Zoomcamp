@@ -81,7 +81,6 @@ What is the standard deviation of the RMSE values?
 - 39.176
 - 49.176
 
-> **Note**: Standard deviation measures how much the values differ from each other. A low standard deviation indicates that the values are similar, while a high standard deviation suggests more variation. If the standard deviation of RMSE values is low, it means that our model is stable.
 
 ### Question 6
 
