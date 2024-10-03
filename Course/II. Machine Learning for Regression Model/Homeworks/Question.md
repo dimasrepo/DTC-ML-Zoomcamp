@@ -24,7 +24,7 @@ What is the median (50th percentile) value for the variable `'ram'`?
 - 24
 - 32
 
-### Data Preparation and Splitting
+Data Preparation and Splitting
 
 - Shuffle the dataset (use the filtered dataset you’ve created earlier), applying seed `42`.
 - Split the dataset into training, validation, and test sets, with a 60%/20%/20% distribution.
