@@ -159,8 +159,12 @@ Linear regression is a statistical method used to model the relationship between
 
 ## Linear Regression Formula
 The linear regression model can be expressed as:
-\[ g(x_i) = w_0 + \sum_{j=1}^{n} w_j \cdot x_{ij} \]
-where \( g(x_i) \) is the predicted value, \( w_0 \) is the bias term, and \( w_j \) are the weights associated with each feature \( x_{ij} \).
+
+$g(x_i) = w_0 + x_{i1} \cdot w_1 + x_{i2} \cdot w_2 + ... + x_{in} \cdot w_n$.
+
+And that can be further simplified as:
+
+$g(x_i) = w_0 + \displaystyle\sum_{j=1}^{n} w_j \cdot x_{ij}$
 
 ## Implementation in Python
 A simple implementation of linear regression can be done as follows:
