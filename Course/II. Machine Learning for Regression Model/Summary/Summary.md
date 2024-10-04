@@ -218,7 +218,7 @@ This process provides a comprehensive understanding of how linear regression wor
 
 ## Linear Regression vector form
 
-The formula for linear regression can be represented using the dot product between a feature vector and a weight vector. The feature vector includes a bias term with an x value of one, denoted as \( w_0 x_{i0} \), where \( x_{i0} = 1 \) for \( w_0 \). 
+The formula for linear regression can be represented using the dot product between a feature vector and a weight vector. The feature vector includes a bias term with an x value of one, denoted as $( w_0 x_{i0} \)$, where \( x_{i0} = 1 \) for \( w_0 \). 
 
 When considering all records, linear regression predictions are derived from the dot product between a feature matrix \( X \) and a weight vector \( w \). This can be expressed as \( g(x_i) = w_0 + x_i^T w \).
 
