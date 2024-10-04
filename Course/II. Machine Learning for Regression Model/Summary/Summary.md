@@ -184,8 +184,11 @@ https://github.com/user-attachments/assets/17d1bd4c-0a89-4140-93f4-bfe6884bb306
 ​such that the sum of squared differences between the predicted and actual values is minimized. This is achieved using the ordinary least squares method.
 
 ## Single Observation Analysis
-For a single observation the function can be simplified as: https://github.com/user-attachments/assets/6f3dcaf8-ad54-4504-9883-748d3be709ca
- is a vector of characteristics for one instance, and https://github.com/user-attachments/assets/5e0cab46-49d3-4c0e-9cfd-f8ca82049b53 is the corresponding target value.
+For a single observation the function can be simplified as: 
+https://github.com/user-attachments/assets/6f3dcaf8-ad54-4504-9883-748d3be709ca
+is a vector of characteristics for one instance, and 
+https://github.com/user-attachments/assets/5e0cab46-49d3-4c0e-9cfd-f8ca82049b53 
+is the corresponding target value.
 
 ## Example of Feature Extraction
 Given a dataset, one can extract features:
