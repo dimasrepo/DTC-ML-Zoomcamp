@@ -1,4 +1,4 @@
-# ML Zoomcamp 2024: Machine Learning  for Regression
+# Machine Learning  for Regression
 
 ### Part 1
 
