@@ -1,0 +1,25 @@
+Item,Description,No.,Question,Options,Selected Answer
+Due Date,8 October 2024 06:00 (local time),1,Missing values,A. 'ram',C. 'screen'
+,,,,B. 'storage',
+,,,,C. 'screen',
+,,,,D. 'final_price',
+,,2,Median for RAM,A. 8,B. 16
+,,,,B. 16,
+,,,,C. 24,
+,,,,D. 32,
+,,3,Filling NAs,A. With 0,A. With 0
+,,,,B. With mean,
+,,,,C. Both are equally good,
+,,4,Regularization,A. 0,D. 10
+,,,,B. 0.01,
+,,,,C. 1,
+,,,,D. 10,
+,,,,E. 100,
+,,5,RMSE spread,A. 19.176,B. 29.176
+,,,,B. 29.176,
+,,,,C. 39.176,
+,,,,D. 49.176,
+,,6,RMSE on Test,A. 598.60,B. 608.60
+,,,,B. 608.60,
+,,,,C. 618.60,
+,,,,D. 628.60,
