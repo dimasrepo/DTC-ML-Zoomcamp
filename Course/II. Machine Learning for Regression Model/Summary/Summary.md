@@ -240,11 +240,13 @@ def linear_regression(xi):
     return w0 + dot(xi, w)
 ```
 
-To simplify, we can introduce an additional feature https://github.com/user-attachments/assets/caf48dfd-895d-46c8-aaa2-efaf7f2f1700 always set to 1, leading to:
-https://github.com/user-attachments/assets/f0bd1ede-659c-4a29-917c-258a8067e5b7
+To simplify, we can introduce an additional feature always set to 1, leading to:
+$g(xi) = w0 + xiTw -> g(xi) = w0xi0 + xiTw$
 
 This implies the weight vector 𝑤 expands to an n+1 dimensional vector:
-https://github.com/user-attachments/assets/48d091a2-b7a8-46b9-9994-694d3cd48af7
+$w = [w0, w1, w2, … wn]$
+$xi = [xi0, xi1, xi2, …, xin] = [1, xi1, xi2, …, xin]$
+$wTxi = xiTw = w0 + …$
 
 The dot product can now be used for the entire regression.
 
