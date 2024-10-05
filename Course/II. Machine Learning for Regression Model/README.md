@@ -23,6 +23,6 @@
 ## Notes
 
 
-* Notes by Dimas [Medium](https://medium.com/@senddimasadit/machine-learning-zoomcamp-by-datatalksclub-introduction-to-machine-learning-090f5fa0d7a0)
+* Notes by Dimas [Medium](https://medium.com/@dimasadit/machine-learning-zoomcamp-by-datatalksclub-machine-learning-for-regression-6a6f3a99580a)
   
 * To view the repository and portfolio, please visit our link [Dimas Project](https://dimasrepo.github.io/)
