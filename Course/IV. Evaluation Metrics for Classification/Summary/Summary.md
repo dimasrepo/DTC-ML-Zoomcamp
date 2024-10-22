@@ -1,4 +1,4 @@
-# ML Zoomcamp 2024: Evaluation metrics for classification
+# ML Zoomcamp 2024: Evaluation Metrics for Classification
 
 ## Part 1
 
