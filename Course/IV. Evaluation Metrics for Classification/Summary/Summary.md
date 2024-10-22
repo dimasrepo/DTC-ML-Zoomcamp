@@ -231,3 +231,105 @@ Recall: Measures the proportion of true positives among all actual positives.
 F1-Score: The harmonic mean of precision and recall.
 AUC-ROC: Measures the ability to distinguish between classes at various thresholds.
 Choosing the best metric depends on the problem's goals and whether minimizing false positives or false negatives is more important.
+
+
+# Confusion Matrix and Types of Errors
+
+## Overview
+In this section, we will explore the **confusion matrix**, a critical tool for evaluating the performance of binary classification models. The confusion matrix provides a breakdown of how a model's predictions align with actual outcomes, revealing the types of correct and incorrect decisions made.
+
+The confusion matrix is especially useful when dealing with **class imbalance**, as it gives us a more detailed view of model performance than accuracy alone.
+
+## Components of the Confusion Matrix
+The confusion matrix is structured around four key metrics:
+
+- **True Positives (TP):** Correctly predicted positive class (e.g., churn customers).
+- **True Negatives (TN):** Correctly predicted negative class (e.g., non-churn customers).
+- **False Positives (FP):** Incorrectly predicted positive class when the actual class is negative (**Type I error**).
+- **False Negatives (FN):** Incorrectly predicted negative class when the actual class is positive (**Type II error**).
+
+### Example Table Layout
+| Prediction vs Actual | No Churn (Negative) | Churn (Positive) |
+|----------------------|---------------------|------------------|
+| **Predicted No Churn** | True Negative (TN) | False Negative (FN) |
+| **Predicted Churn**   | False Positive (FP) | True Positive (TP) |
+
+## Calculating the Confusion Matrix
+Let’s implement a confusion matrix calculation using Python.
+
+### Data Setup
+We start by defining thresholds for predictions and grouping the data into actual positives and negatives:
+
+```python
+# True churners (actual positives)
+actual_positive = (y_val == 1)
+
+# True non-churners (actual negatives)
+actual_negative = (y_val == 0)
+
+# Prediction thresholds
+t = 0.5
+predict_positive = (y_pred >= t)
+predict_negative = (y_pred < t)
+```
+
+Logical Operations for Each Category
+To find each category in the confusion matrix:
+```python
+# True Positives
+tp = (predict_positive & actual_positive).sum()
+
+# True Negatives
+tn = (predict_negative & actual_negative).sum()
+
+# False Positives
+fp = (predict_positive & actual_negative).sum()
+
+# False Negatives
+fn = (predict_negative & actual_positive).sum()
+```
+
+Confusion Matrix Example
+Arranging these values into a confusion matrix:
+```python
+import numpy as np
+
+confusion_matrix = np.array([
+    [tn, fp],
+    [fn, tp]
+])
+
+confusion_matrix
+```
+
+Output:
+```python
+array([[922, 101],
+       [176, 210]])
+```
+
+Accuracy Calculation
+Accuracy is calculated by summing the correct predictions (True Positives + True Negatives) divided by the total predictions:
+```python
+accuracy = (tn + tp) / (tn + tp + fn + fp)
+accuracy * 100  # Output: 80%
+```
+
+In our case, the accuracy is 80%, but the confusion matrix provides more context about the errors.
+
+Relative Values in Confusion Matrix
+To better understand the model’s performance, we can express these values as relative proportions:
+```python
+(confusion_matrix / confusion_matrix.sum()).round(2)
+```
+
+Output:
+```python
+array([[0.65, 0.07],
+       [0.12, 0.15]])
+```
+
+Key Insights
+False Positives (FP) result in unnecessary costs by targeting non-churning customers.
+False Negatives (FN) cause financial loss by missing potential churners who leave without receiving an offer.
+Both scenarios have a negative impact, and understanding the confusion matrix helps us strategize around these errors.
