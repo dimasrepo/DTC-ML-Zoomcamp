@@ -1,82 +1,233 @@
-# ML Zoomcamp 2024: Introduction to Machine Learning  
+# ML Zoomcamp 2024: Evaluation metrics for classification
 
-### Part 1
+# Churn Prediction Model Using Logistic Regression
 
-## What is Machine Learning
+## Overview
+This script covers the essential steps for building a churn prediction model using Logistic Regression. We will:
+1. Import necessary libraries.
+2. Prepare the data by cleaning and transforming it.
+3. Split the dataset into training, validation, and test sets.
+4. Train a Logistic Regression model on the training data.
+5. Validate the model on the validation data and evaluate its performance.
 
-The concept of Machine Learning (ML) is illustrated through an example of predicting car prices. Data, including features such as year and mileage, is used by the ML model to learn and identify patterns. The target variable, in this case, is the car's price.
+---
 
-New data, which lacks the target variable, is then provided to the model to predict the price.
+### 1. Necessary Imports
 
-In summary, ML involves extracting patterns from data, which is categorized into two types:
-- **Features**: Information about the object.
-- **Target**: The property to be predicted for unseen objects.
+We start by importing the required libraries: Pandas for data manipulation, NumPy for numerical operations, Matplotlib for visualization, and several modules from Scikit-Learn for machine learning tasks.
 
-New feature values are inputted into the model, which generates predictions based on the patterns it has learned. This is an overview of what has been learned from the ML course by Alexey Grigorev ([ML Zoomcamp](http://mlzoomcamp.com)). All images in this post are sourced from the course material. Images in other posts may also be derived from this material.
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.linear_model import LogisticRegression
+```
 
-### What is Machine Learning?
+2. Data Preparation
+Load the dataset and standardize column names by converting them to lowercase and replacing spaces with underscores.
+Identify categorical columns and ensure that the 'totalcharges' column is correctly converted to a numerical format.
+Convert the 'churn' column into a binary format, where 'yes' becomes 1 and 'no' becomes 0.
 
-Machine Learning (ML) is explained as the process of training a model using features and target information to predict unknown object targets. In other words, ML is about extracting patterns from data, which includes features and targets.
 
-To understand ML, it is important to differentiate between the following terms:
-- **Features**: What is known about an object. In this example, it refers to the characteristics of a car. A feature represents an object's attribute in various forms, such as numbers, strings, or more complex formats (e.g., location information).
-- **Target**: The aspect to be predicted. The term "label" is also used in some sources. During training, a labeled dataset is used since the target is known. For example, datasets of cars with known prices are used to predict prices for other cars with unknown values.
-- **Model**: The result of the training process, which encompasses the patterns learned from the training data. This model is utilized later to make predictions about the target variable based on the features of an unknown object.
+```python
+df = pd.read_csv('data-week-3.csv')
+df.columns = df.columns.str.lower().str.replace(' ', '_')
 
-### Training and Using a Model
+categorical_columns = list(df.dtypes[df.dtypes == 'object'].index)
 
-- **Train a Model**: The training process involves the extraction of patterns from the provided training data. In simpler terms, features are combined with the target, resulting in the creation of the model.
+for c in categorical_columns:
+    df[c] = df[c].str.lower().str.replace(' ', '_')
 
-- **Use a Model**: Training alone does not make the model useful. The benefit is realized through its application. By applying the trained model to new data (without targets), predictions for the missing information (e.g., price) are obtained. Therefore, features are used during prediction, while the trained model is applied to generate predictions for the target variable.
+df.totalcharges = pd.to_numeric(df.totalcharges, errors='coerce')
+df.totalcharges = df.totalcharges.fillna(0)
+df.churn = (df.churn == 'yes').astype(int)
+```
+3. Data Splitting
+We split the dataset into:
 
-### Part 2
+60% for training,
+20% for validation, and
+20% for testing.
+The indices are reset to ensure continuous indexing, and the 'churn' column is separated as the target variable.
 
-## Machine Learning vs Rule Bases
+```python
+df_full_train, df_test = train_test_split(df, test_size=0.2, random_state=1)
+df_train, df_val = train_test_split(df_full_train, test_size=0.25, random_state=1)
 
-## Differences Between ML and Rule-Based Systems: Example of a Spam Filter
+df_train = df_train.reset_index(drop=True)
+df_val = df_val.reset_index(drop=True)
+df_test = df_test.reset_index(drop=True)
 
-### Rule-Based Systems
+y_train = df_train.churn.values
+y_val = df_val.churn.values
+y_test = df_test.churn.values
 
-Traditional rule-based systems rely on a set of characteristics (such as keywords and email length) to determine whether an email is spam. As spam emails evolve, the system must be updated, which becomes increasingly complex due to the difficulty of maintaining and modifying the code as the system expands.
+del df_train['churn']
+del df_val['churn']
+del df_test['churn']
+```
+4. Feature Preparation
+We define two lists: one for numerical features and one for categorical features.
 
-### Machine Learning Approach
+```python
+numerical = ['tenure', 'monthlycharges', 'totalcharges']
+categorical = ['gender', 'seniorcitizen', 'partner', 'dependents',
+       'phoneservice', 'multiplelines', 'internetservice',
+       'onlinesecurity', 'onlinebackup', 'deviceprotection', 'techsupport',
+       'streamingtv', 'streamingmovies', 'contract', 'paperlessbilling',
+       'paymentmethod']
+```
 
-The problem of spam filtering can be addressed using machine learning through the following steps:
+5. Vectorization and Model Training
+We use the DictVectorizer to transform the categorical and numerical columns into vectors, and then train the Logistic Regression model.
+```python
+dv = DictVectorizer(sparse=False)
 
-1. **Data Collection**  
-   Emails from the spam folder and inbox are gathered to provide examples of both spam and non-spam emails.
+train_dict = df_train[categorical + numerical].to_dict(orient='records')
+X_train = dv.fit_transform(train_dict)
 
-2. **Feature Definition and Calculation**  
-   Features for the ML model can be initially defined using the rules from rule-based systems. The target variable for each email is determined based on its source (spam folder or inbox).  
-   Each email is then encoded into feature values and a target label.
+model = LogisticRegression()
+model.fit(X_train, y_train)
+```
 
-3. **Model Training and Application**  
-   A machine learning algorithm is applied to the encoded emails to build a model capable of predicting whether a new email is spam or not. The predictions generated are probabilities, and a threshold must be defined to classify emails as spam or not spam.
+6. Model Validation
+We transform the validation dataset similarly, predict churn probabilities, and evaluate the accuracy of the model.
+```python
+val_dict = df_val[categorical + numerical].to_dict(orient='records')
+X_val = dv.transform(val_dict)
 
-### Rule-Based Systems
+y_pred = model.predict_proba(X_val)[:, 1]
+churn_decision = (y_pred >= 0.5)
+accuracy = (y_val == churn_decision).mean()
 
-In a rule-based system, rules are defined to differentiate between ham and spam emails. Initially, the rules work effectively, but over time, adjustments become necessary. This continuous need for reconfiguration creates a maintenance challenge, making the system increasingly difficult to manage.
+# Output the accuracy
+accuracy
+```
 
-### Machine Learning
+# Model Accuracy and Evaluation
 
-To implement a spam filter using machine learning, the following steps are taken:
+## Accuracy and Dummy Model
 
-1. **Data Collection**  
-   Data is collected using the “SPAM” button in the email system.
+In the previous analysis, our model achieved **80% accuracy** on the validation data, but we need to evaluate whether this is a good result.
 
-2. **Feature Definition and Extraction**  
-   Features are created, starting with rules used in rule-based systems. Examples of features include:
-   - Length of title > 10? true/false
-   - Length of body > 10? true/false
-   - Sender “promotions@online.com”? true/false
-   - Sender “hpYOSKmL@test.com”? true/false
-   - Sender domain “test.com”? true/false
-   - Description contains “deposit”? true/false
+**Accuracy** measures the proportion of correct predictions made by the model. In this case, a prediction was considered correct if a customer's predicted value was above the 0.5 threshold, meaning they were classified as "churn." Otherwise, they were classified as "non-churn."
 
-   These features are binary, and each email can be encoded as a binary vector, such as [1, 1, 0, 0, 1, 1]. Each email also has a label/target (spam = 1, no-spam = 0), which represents the desired output.
+Out of **1409 customers** in the validation dataset, the model correctly predicted the churn status for **1132 customers**, resulting in an accuracy of **80%**:
+```python
+len(y_val)  # Output: 1409
+(y_val == churn_decision).sum()  # Output: 1132
+1132 / 1409  # Output: 0.8034
+(y_val == churn_decision).mean()  # Output: 0.8034
+```
 
-3. **Training**  
-   The data is used to train the model, a process often referred to as fitting the model. During training, a complex system of equations with numerous parameters is solved. Features are adjusted relative to each other to achieve the correct classification, with the trained model determining the weights needed to accurately classify emails as spam (1) or not spam (0). The model provides probabilities for the correct label.
+Evaluating Model on Different Thresholds
+We can test if 0.5 is the best threshold for our model by experimenting with various threshold values. We can generate a range of values using NumPy's linspace function and evaluate the model at each threshold to find the one that maximizes accuracy.
 
-4. **Applying the Model**  
-   When applied to new datasets, the model generates a probability indicating whether the email is spam. A threshold (e.g., 0.5) is used to make the final classification decision, with probabilities greater than or equal to 0.5 categorized as spam.
+```python
+import numpy as np
+
+thresholds = np.linspace(0, 1, 21)  # Generate thresholds from 0 to 1
+scores = []
+
+for t in thresholds:
+    churn_decision = (y_pred >= t)
+    score = (y_val == churn_decision).mean()
+    print('%.2f %.3f' % (t, score))
+    scores.append(score)
+```
+```python
+0.00 0.274
+0.05 0.509
+0.10 0.591
+0.15 0.666
+0.20 0.710
+0.25 0.739
+0.30 0.760
+0.35 0.772
+0.40 0.785
+0.45 0.793
+0.50 0.803
+0.55 0.801
+0.60 0.795
+0.65 0.786
+0.70 0.766
+0.75 0.744
+0.80 0.735
+0.85 0.726
+0.90 0.726
+0.95 0.726
+1.00 0.726
+```
+The model performs best at a 0.5 threshold, confirming it is the optimal choice for this context. We can visualize how accuracy changes with different thresholds:
+```python
+import matplotlib.pyplot as plt
+
+plt.plot(thresholds, scores)
+plt.xlabel('Threshold')
+plt.ylabel('Accuracy')
+plt.title('Accuracy at Different Thresholds')
+plt.show()
+```
+Scikit-learn Accuracy
+We can simplify this evaluation by using Scikit-Learn's accuracy_score function:
+```python
+from sklearn.metrics import accuracy_score
+
+thresholds = np.linspace(0, 1, 21)
+scores = []
+
+for t in thresholds:
+    score = accuracy_score(y_val, y_pred >= t)
+    print('%.2f %.3f' % (t, score))
+    scores.append(score)
+```
+```python
+0.00 0.274
+0.05 0.509
+0.10 0.591
+0.15 0.666
+0.20 0.710
+0.25 0.739
+0.30 0.760
+0.35 0.772
+0.40 0.785
+0.45 0.793
+0.50 0.803
+0.55 0.801
+0.60 0.795
+0.65 0.786
+0.70 0.766
+0.75 0.744
+0.80 0.735
+0.85 0.726
+0.90 0.726
+0.95 0.726
+1.00 0.726
+```
+Dummy Model Accuracy
+The dummy model (which predicts all customers as non-churners) achieves an accuracy of 73%, even though it doesn’t distinguish between churning and non-churning customers. This reveals the limitations of accuracy as a metric, especially with imbalanced datasets.
+```python
+from collections import Counter
+
+# Distribution of predictions
+Counter(y_pred >= 1.0)  # Output: Counter({False: 1409})
+
+# Distribution of actual values
+Counter(y_val)  # Output: Counter({0: 1023, 1: 386})
+
+1023 / 1409  # Output: 0.7260468417317246
+y_val.mean()  # Output: 0.2739531582682754
+1 - y_val.mean()  # Output: 0.7260468417317246
+```
+With only 27% churners, accuracy can be deceptive, as predicting everyone as non-churners already gives a high score.
+
+Alternative Metrics for Imbalanced Datasets
+In cases like this, it’s important to consider other metrics:
+
+Precision: Measures the proportion of true positives among all positive predictions.
+Recall: Measures the proportion of true positives among all actual positives.
+F1-Score: The harmonic mean of precision and recall.
+AUC-ROC: Measures the ability to distinguish between classes at various thresholds.
+Choosing the best metric depends on the problem's goals and whether minimizing false positives or false negatives is more important.
